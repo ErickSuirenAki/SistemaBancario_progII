@@ -1,7 +1,14 @@
+//Discente: Erick Batista dos Santos
+//2º Periodo de Ciência da Computação
+//Disciplina: Programação 2
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+
+//feito em sala de aula inicio
 #define TF 100
 
 struct cliente{
@@ -116,6 +123,9 @@ int buscaIndexada(struct par Indice[TF], int &tl, int numConta){
 
     return posicao;
 }
+//feito em sala de aula fim
+
+//funções feitas no trabalho inicio
 
 int deposito(struct cliente Tabela[TF], int tl, int numConta, float valor){
     int posicao = -1;
@@ -201,8 +211,10 @@ void relatorioOrdenado(struct cliente Tabela[TF], struct par Indice[TF], int tl)
              Tabela[posicaoTabela].numConta, Tabela[posicaoTabela].nome, Tabela[posicaoTabela].saldo);
     }
 }
+//funções feitas no trabalho fim
 
 int main(){
+    //feito em sala de aula inicio
     int tl = 0;
     int opcao = 0;
     int numConta;
@@ -276,7 +288,9 @@ int main(){
                 printf("\nConta %d nome %s saldo %5.2f", Tabela[posicao].numConta,
                      Tabela[posicao].nome, Tabela[posicao].saldo);
                 break;
+        //feito em sala de aula fim
 
+        //feito no trabalho inicio
         case 7:
             printf("\nEntre com a conta para deposito: ");
             scanf("%d", &numConta);
@@ -296,8 +310,6 @@ int main(){
                 regravar(Tabela, tl); //regrava o valor alterado no arquivo
 
             }
-           
-            
             break;
 
         case 8:
@@ -308,15 +320,15 @@ int main(){
                 printf("\nNao encontrou a conta");
             }
             else {
-                printf("\nconta = %d nome = %s saldo  = %5.2f", Tabela[posicao].numConta, //se exitir realiza o deposito
+                printf("\nconta = %d nome = %s saldo  = %5.2f", Tabela[posicao].numConta, 
                      Tabela[posicao].nome, Tabela[posicao].saldo);
                 printf("\nQuanto deseja sacar?\n");
                 scanf("%f", &valor);
-                posicao = saque(Tabela, tl, numConta, valor);
+                posicao = saque(Tabela, tl, numConta, valor);//se exitir, mas nao tem saldo
                 if(posicao == 0){
                     printf("\nConta localizada, mas saldo insuficiente");}
                 else{
-                    printf("\nconta = %d nome = %s saldo  = %5.2f", Tabela[posicao].numConta,
+                    printf("\nconta = %d nome = %s saldo  = %5.2f", Tabela[posicao].numConta, //se exitir e tiver saldo realiza o deposito
                      Tabela[posicao].nome, Tabela[posicao].saldo);
                     printf("\nSaque realizado!\n\n");
                     regravar(Tabela, tl); //regrava o valor alterado no arquivo
@@ -335,8 +347,9 @@ int main(){
 
 
         case 10:
-            printf("\nRelatorio ordenado\n");
-            relatorioOrdenado(Tabela,Indice,tl); //precisa regravar no arquivo a tabela ordenada?
+            relatorioOrdenado(Tabela,Indice,tl); //precisa regravar no arquivo a tabela ordenada? *nao precisa
+
+        //feito no trabalho fim
 
         } //switch
 
